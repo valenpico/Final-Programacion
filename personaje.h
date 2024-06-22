@@ -1,5 +1,6 @@
 #ifndef PERSONAJE
 #define PERSONAJE
+#include <string>
 
 struct Personaje
 {
@@ -10,7 +11,5 @@ struct Personaje
     int edad;
     int cantArmas;
 };
-
-
 
 #endif
