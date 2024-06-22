@@ -1,6 +1,7 @@
 #ifndef PERSONAJE
 #define PERSONAJE
 #include <string>
+using namespace std;
 
 struct Personaje
 {

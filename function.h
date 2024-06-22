@@ -1,6 +1,6 @@
 #ifndef FUNCTION
 #define FUNCTION
-#include "string"
+#include <string>
 #include "personaje.h"
 #include <vector>
 using namespace std;
