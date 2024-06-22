@@ -10,6 +10,12 @@ void clearScreen()
     system("cls");
 }
 
+void wait()
+{
+    cout << "Presione enter para continuar...";
+    cin.get();
+    cin.ignore();
+}
 
 void ingresarJugador(Personaje jugadores[100], int n)
 {
@@ -76,8 +82,40 @@ int main()
             cin >> n;
             ingresarJugador(jugadores, n);
             break;
+        case 2:
+            cout << "El jugador con mas asesinatos es: " << findMaxKiller(jugadores, n) << endl;
+            wait();
+            break;
+        case 3:
+            cout << "El jugador que mas bajas recibio jugo: " << minutosJugadorMaxKills(jugadores, n) << " minutos" << endl;
+            wait();
+            break;
+        case 4:
+            cout << "El porcentaje de muertes de los jugadores que jugaron entre 100 y 200 minutos es: " << porcentajeMuertesJugadoresE100y200(jugadores, n) << "%" << endl;
+            wait();
+            break;        
+        case 5:
+            cout << "La cantidad de asesinatos del jugador de mayor edad es: " << cantKillsJugadorMayorEdad(jugadores, n) << endl;
+            wait();
+            break;    
+        case 6:
+            cout << "El alias del jugador con menos edad es: " << aliasJugadorMenorEdad(jugadores, n) << endl;
+            wait();
+            break;
+        case 7:
+            cout << "La cantidad de muertes en promedio durante el juego es: " << cantMuertesPromedioTotales(jugadores, n) << endl;
+            wait();
+            break;
+        case 8:
+            cout << "La edad del jugador con menos asesinatos es: " << edadJugadorMenosKills(jugadores, n) << endl;
+            wait();
+            break;
+        case 9:
+            cout << "Saliendo..." << endl;
+            wait();
+            break;        
         }
-        
+
     } while (opcion != 9 && opcion > 0);
     
 }
