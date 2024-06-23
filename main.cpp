@@ -32,23 +32,53 @@ void ingresarJugador(Personaje jugadores[100], int n)
         jugadores[i].alias = alias;
 
         cout << "Ingrese los minutos jugados del jugador " << i + 1 << ": ";
-        cin >> minutos;
+        while(!(cin >> minutos) || minutos < 0)
+        {
+            clearScreen();
+            cin.clear();
+            cin.ignore();
+            cout << "Ingrese un numero valido: ";
+        }
         jugadores[i].minutos = minutos;
 
         cout << "Ingrese las muertes del jugador " << i + 1 << ": ";
-        cin >> muertes;
+        while(!(cin >> muertes) || muertes < 0)
+        {
+            clearScreen();
+            cin.clear();
+            cin.ignore();
+            cout << "Ingrese un numero valido: ";
+        }
         jugadores[i].muertes = muertes;
 
         cout << "Ingrese los asesinatos del jugador " << i + 1 << ": ";
-        cin >> asesinatos;
+        while(!(cin >> asesinatos) || asesinatos < 0)
+        {
+            clearScreen();
+            cin.clear();
+            cin.ignore();
+            cout << "Ingrese un numero valido: ";
+        }
         jugadores[i].asesinatos = asesinatos;
 
         cout << "Ingrese la edad del jugador " << i + 1 << ": ";
-        cin >> edad;
+        while(!(cin >> edad) || edad < 0)
+        {
+            clearScreen();
+            cin.clear();
+            cin.ignore();
+            cout << "Ingrese un numero valido: ";
+        }
         jugadores[i].edad = edad;
 
         cout << "Ingrese la cantidad de armas del jugador " << i + 1 << ": ";
-        cin >> cantArmas;
+        while(!(cin >> cantArmas) || cantArmas < 0)
+        {
+            clearScreen();
+            cin.clear();
+            cin.ignore();
+            cout << "Ingrese un numero valido: ";
+        }
         jugadores[i].cantArmas = cantArmas;
     }
 }
@@ -72,14 +102,29 @@ int main()
         cout << "6. Alias jugador con menos edad" << endl;
         cout << "7. Cantidad de muertes en promedio durante el juego" << endl;
         cout << "8. Edad del jugador con menos asesinatos" << endl;
-        cout << "9. Salir" << endl;
+        cout << "9. Promedio de bajas que tuvieron los jugadores entre 15 y 20 años" << endl;
+        cout << "10. Alias del jugador con mas armas usadas" << endl;
+        cout << "11. Promedio de bajas de los jugadores menores de 20 años" << endl;
+        cout << "12. Promedio de bajas de jugadores entre 18 y 22 años" << endl;
+        cout << "13. Acumulado de minutos de los jugadores con mas de 30 asesinatos" << endl;
+        cout << "14. cantidad de jugadores que tuvieron mas bajas que asesinatos" << endl;
+        cout << "15. Promedio de jugadores que tuvieron mas asesinatos que bajas" << endl;
+        cout << "16. Alias del jugador que mas armas utilizo" << endl;
+        cout << "17. Salir" << endl;
         cin>>opcion;
         clearScreen();
         switch (opcion)
         {
         case 1:
             cout << "Ingrese la cantidad de jugadores: ";
-            cin >> n;
+            while(!(cin >> n) || n < 0 || n > 100)
+            {
+                clearScreen();
+                cin.clear();
+                cin.ignore();
+                cout << "Ingrese un numero valido: ";
+                
+            }
             ingresarJugador(jugadores, n);
             break;
         case 2:
@@ -111,11 +156,43 @@ int main()
             wait();
             break;
         case 9:
+            cout << "El promedio de bajas que tuvieron los jugadores entre 15 y 20 años es: " << promedioBajasEntre15y20(jugadores, n) << endl;
+            wait();
+            break;
+        case 10:
+            cout << "El alias del jugador con mas armas usadas es: " << aliasMasArmasUsadas(jugadores, n) << endl;
+            wait();
+            break;
+        case 11:
+            cout << "El promedio de bajas de los jugadores menores de 20 años es: " << promedioBajasMenoresDe20(jugadores, n) << endl;
+            wait();
+            break;
+        case 12:
+            cout << "El promedio de bajas de jugadores entre 18 y 22 años es: " << porcentajeBajasEntre18y22(jugadores, n) << endl;
+            wait();
+            break;
+        case 13:
+            cout << "El acumulado de minutos de los jugadores con mas de 30 asesinatos es: " << acumuladoMinutosMasDe30Asesinatos(jugadores, n) << endl;
+            wait();
+            break;
+        case 14:
+            cout << "La cantidad de jugadores que tuvieron mas bajas que asesinatos es: " << jugadoresMasBajasQueAsesinatos(jugadores, n) << endl;
+            wait();
+            break;
+        case 15:
+            cout << "El porcentaje de jugadores que tuvieron mas asesinatos que bajas es: " << porcentajeMasAsesinatosQueBajas(jugadores, n) << endl;
+            wait();
+            break;
+        case 16:
+            cout << "El alias del jugador que mas armas utilizo es: " << aliasMenosArmasUsadas(jugadores, n) << endl;
+            wait();
+            break;
+        case 17:
             cout << "Saliendo..." << endl;
             wait();
             break;        
         }
 
-    } while (opcion != 9 && opcion > 0);
+    } while (opcion != 17 && opcion > 0);
     
 }
